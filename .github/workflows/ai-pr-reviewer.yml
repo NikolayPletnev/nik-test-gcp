@@ -19,6 +19,8 @@ jobs:
   review:
     runs-on: ubuntu-latest
     steps:
+      - name: Test the key
+        uses: actions/checkout@v2
 #      - uses: coderabbitai/ai-pr-reviewer@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
