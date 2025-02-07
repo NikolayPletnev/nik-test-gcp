@@ -17,9 +17,10 @@ provider "google" {
   zone    = "${var.region}-b"
 }
 
-resource "google_compute_project_default_network_tier" "default" {
+resource "google_copute_project_default_network_tier" "default" {
   network_tier = "PREMIUM"
 }
+
 
 resource "google_compute_network" "vpc_network" {
   name = "gcp-test-network"
@@ -49,6 +50,14 @@ resource "google_storage_bucket_object" "test_image" {
   name = "test.jpg"
    source       = "test/1.jpg"
    content_type = "image/jpeg"
+
+  bucket = google_storage_bucket.private_bucket.name
+}
+
+resource "google_storage_bucket_object" "test_image" {
+  name = "test2.jpg"
+  source       = "test/2.jpg"
+  content_type = "image/jpeg"
 
   bucket = google_storage_bucket.private_bucket.name
 }

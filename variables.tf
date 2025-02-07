@@ -12,3 +12,8 @@ variable "region" {
   description = "The region where the resources will be deployed."
   type        = string
 }
+
+variable "bufi" {
+  description = "The bufi is a variable."
+  type        = string
+}
