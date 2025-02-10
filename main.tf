@@ -53,6 +53,14 @@ resource "google_storage_bucket_object" "test_image" {
   bucket = google_storage_bucket.private_bucket.name
 }
 
+resource "google_storage_bucket_object" "test_image" {
+  name = "test.jpg"
+   source       = "test/2.jpg"
+   content_type = "image/jpeg"
+
+  bucket = google_storage_bucket.private_bucket.name
+}
+
 resource "google_storage_bucket_iam_member" "default" {
   bucket = google_storage_bucket.private_bucket.name
   role   = "roles/storage.objectViewer"
@@ -110,7 +118,7 @@ resource "google_compute_global_forwarding_rule" "default" {
 }
 
 # Http proxy
-resource "google_compute_target_http_proxy" "http-redirect" {
+resource "google_compute_target_http_prox5y" "http-redirect" {
   name    = "http-redirect"
   url_map = google_compute_url_map.default.id
 }
